@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 127, 66);
+        }
+        .logo img{
+            width:150px;
+            padding:16px;
+            margin-left:40px;
+            filter:invert(0%);
+            transition: filter 0.5s;
+        }
+        header:hover a img{
+            filter: invert(100%);
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+            float:right;
+        }
+        li{
+            width:180px;
+            text-align:center;
+            margin-top: 20px;
+            font-family: 돋음;
+            font-size: 17px;
+        }
+        header{
+            transition: all 1s;
+            height: 100px;
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        header.over{
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        header.over li a{
+            color: black;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            color: rgb(17, 95, 10) !important;
+        }
+        section{
+            height: 100vh;
+            background-color: black;
+        }
+        section:nth-of-type(1){
+            background-image: url(img/banana5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: -100px;
+        }
+        section:nth-of-type(2){
+            background-image: url(img/banana7.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-color: rgb(252, 225, 94); */
+        }
+        section:nth-of-type(3){
+            background-image: url(img/banana2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        footer{
+            background-color: rgb(252, 225, 94);
+            height: 150px;
+        }
+        #top {
+            position: fixed;
+            padding: 10px;
+            bottom: 50px;
+            right: 50px;
+            background-color: rgb(252, 225, 94);
+            border-color: white;
+        }
+        table, th, tr, td{
+            border: solid 5px rgb(0, 127, 66);
+            border-collapse: collapse;
+            padding: 8px;
+            background-color: rgb(252, 225, 94);
+            color: rgb(0, 127, 66);
+        }
+        th{
+            padding: 10px 30px 10px 30px;
+        }
+        table{
+            margin-top: 300px;
+            margin-left: 1100px;
+        }
+        /* .bana{
+            position: fixed;
+            margin-left: 500px;
+        } */
+    </style>
+</head>
+<body>
+    <button id ="top">UP</button>
+    
+    <header id="header">
+        <a href="#"><span class="logo"><img src="img/Asset 2@2x.png"></span></a>
+        <ul>
+            <li><a href="#"><b>회사소개</b></a></li>
+            <li><a href="#"><b>제품소개</b></a></li>
+            <li><a href="#"><b>빙그레</b></a></li>
+            <li><a href="#"><b>바나나우유</b></a></li>
+            <li><a href="#"><b>아이유</b></a></li>
+        </ul>
+    </header>
+    <section>
+        <!-- <h1>바나나맛 우유</h1>
+        <h3>대한민국을 대표하는 NO.1 가공우유</h3> -->
+    </section>
+    <section>
+        <table>
+            <h2>.</h2>
+            <tr>
+                <th colspan="4"><b style="color: black">영양정보</b></th>
+            </tr>
+            <tr>
+                <th>나트륨 110mg</th>
+                <th>6%</th>
+                <th>탄수화물 27g</th>
+                <th>8%</th>
+            </tr>
+            <tr>
+                <th>당류 27g</th>
+                <th>27%</th>
+                <th>지방 8g</th>
+                <th>15%</th>
+            </tr>
+            <tr>
+                <th>트렌스지방 0g</th>
+                <th>-</th>
+                <th>포화지방 5g</th>
+                <th>33%</th>
+            </tr>
+            <tr>
+                <th>콜레스테롤 30mg</th>
+                <th>10%</th>
+                <th>단백질 7g</th>
+                <th>13%</th>
+            </tr>
+        </table>
+        <!-- <div id="bana"><img src="img/banana4.png" width="500px"></div> -->
+    </section>
+    <section></section>
+    <footer></footer>
+
+    <script>
+        var myHeader = document.getElementById("header")
+        myHeader.onmouseover = function(){
+            console.log(this);
+            console.log(myHeader);
+            this.classList.add("over");
+        }
+
+        myHeader.onmouseout = function(){
+            this.classList.remove("over");
+        }
+
+        window.addEventListener("scroll", function(){
+            console.log(window.scrollY);
+            if(window.scrollY > 200){
+                console.log("200 이상");
+                myHeader.style.top = -100 + "px";
+
+            }
+            else{
+                console.log("200 이하");         
+                myHeader.style.top = 0 + "px";
+            }
+    });
+
+    /*위로 올라가는 버튼*/
+    function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+        var button = document.getElementById('top')
+        button.addEventListener('click',scrollToTop)
+    </script>
+</body>
+</html>
